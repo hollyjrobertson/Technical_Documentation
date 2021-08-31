@@ -1,0 +1,194 @@
+<html>
+<!--
+ This is the HTML for the homework problem. It may not be edited
+-->
+
+<head>
+  <title>Homework #5</title>
+  <link rel="stylesheet" type="text/css" href="homework.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="header">
+      <h1>Homework #5</h1>
+      <p>WEBD 335 &#8213; Pete Gordon</p>
+      <div id="instructions">
+        <p>
+          <strong>Instructions:</strong> Follow the instructions below for each Problem (you can write the Javascript in this HTML file directly and return it) and Answer each Question completely (in another document).
+        </p>
+      </div>
+
+  <fieldset>
+    <h2>Problem 1 &#8213; Javascript Objects</h2>
+    <p class="question"><strong>[10 points]</strong> Within this HTML file write Javascript in the file create a Javascript "Todo" object with the following properties.  And declare the two functions/methods below as prototype functions for the object.</p>
+    <p>Todo</p>
+    <ul>
+      <li>name</li>
+      <li>description</li>
+      <li>datetime</li>
+      <li>useremail</li>
+    </li>
+    </ul>
+
+    <p>functions</p>
+    <ul>
+      <li>getName()</li>
+      <li>getUserEmail()</li>
+    </ul>
+
+    <br />
+    <br />
+    <!--Write your Javascript Object and functions here-->
+    <script>
+      var toDo = {
+        name: "Trash",
+        description : "Take trash out!",
+        useremail : "holly@franklin.edu",
+        datetime : function() {
+            return new Date();
+        }
+      };
+
+      toDo.getName = function() {
+        return this.name;
+      }
+
+      toDo.getUserEmail = function() {
+        return this.useremail;
+      }
+
+      var toDoName = document.createElement("P");            
+      toDoName.innerText = "ToDo Name: " + toDo.getName();
+      var toDoDescription = document.createElement("P");
+      toDoDescription.innerText = "ToDo Description: " + toDo.description;
+      var toDoUserEmail = document.createElement("P");
+      toDoUserEmail.innerText = "ToDo User Email: " + toDo.getUserEmail();
+      var toDoDate = document.createElement("P");
+      toDoDate.innerText = "ToDo Date: " + toDo.datetime();
+
+      document.getElementsByClassName("question")[0].appendChild(toDoName);  
+      document.getElementsByClassName("question")[0].appendChild(toDoDescription);  
+      document.getElementsByClassName("question")[0].appendChild(toDoUserEmail); 
+      document.getElementsByClassName("question")[0].appendChild(toDoDate);
+
+    </script>
+    <div>
+        <p style="color:blue"><strong>Answer Above</strong></p>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Problem 2 &#8213; Javascript Closure</h2>
+    <p class="question"><strong>[10 points]</strong> Given the Javascript Object in Problem 1; now write a closure that returns an instance of the Todo object and assigns it into the namespace [myTodo.obj]</p>
+      <br />
+      <br />
+        <!-- Write a Javascript Closure that returns a object instance of Todo and assigns it to myTodo.obj -->
+      <script>
+          
+          function MakeToDo(name, description, useremail) {
+            this.name = name,
+            this.description = description,
+            this.useremail = useremail,
+            this.datetime = function() {
+              return new Date();
+            }
+            return this;
+          }
+
+          var bathroomToDo = new MakeToDo("Bathroom", "Clean the Bathroom", "matt@franklin.edu");
+
+          var bathroomName = document.createElement("P");            
+          bathroomName.innerText = "ToDo Name: " + bathroomToDo.name;
+          var bathroomDescription = document.createElement("P");
+          bathroomDescription.innerText = "ToDo Description: " + bathroomToDo.description;
+          var bathroomEmail = document.createElement("P");
+          bathroomEmail.innerText = "ToDo User Email: " + bathroomToDo.useremail;
+          var bathroomDate = document.createElement("P");
+          bathroomDate.innerText = "ToDo Date: " + bathroomToDo.datetime();
+
+          document.getElementsByClassName("question")[1].appendChild(bathroomName);
+          document.getElementsByClassName("question")[1].appendChild(bathroomDescription);
+          document.getElementsByClassName("question")[1].appendChild(bathroomEmail); 
+          document.getElementsByClassName("question")[1].appendChild(bathroomDate);  
+
+      </script>
+        <div>
+          <p style="color:red"><strong>Answer Above</strong></p>
+        </div>
+      <br />
+      <br />
+
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 1</h2>
+    <p class="question"><strong>[1 point]</strong>
+      What is an object in Javascript?
+    </p>
+      <div>
+        <ul>
+          <li>Javascript Objects:</li>
+            <ul>
+              <li>In the simplest form - an object is a variable with attributes formed as key:value pairs. </li>
+            </ul>
+        </ul>
+      </div>
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 2</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Give two examples of how to reference a property in Javascript.
+    </p>
+     <div>
+        <ul>
+          <li>Reference a property:</li>
+            <ul>
+              <li>object.property</li>
+              <li>object["property"]</li>
+            </ul>
+        </ul>
+      </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 3</h2>
+    <p class="question"><strong>[1 point]</strong>
+      What is the accessibility scope when declaring a var?
+    </p>
+    <div>
+        <ul>
+          <li>Accessibility Scope for a var:</li>
+            <ul>
+              <li>Depends on the placement of the var - if it's outside a function, it's <strong>global</strong>, but if it is inside a function, it's accessibility is <strong>local</strong>.</li>
+            </ul>
+        </ul>
+      </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 4</h2>
+    <p class="question"><strong>[2 point]</strong>
+      Describe a callback.  Provide a Javascript code example of a callback function and it being used.
+    </p>
+    <div>
+        <ul>
+          <li>Javascript callback:</li>
+            <ul>
+              <li>A callback is a function that is to be executed <strong>after</strong> another function has finished executing. <a href="https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced" target="_blank">Source</a></li>
+              <li>The datetime function in the <strong>MakeToDo</strong> object/function is an example of a callback. </li>
+            </ul>
+        </ul>
+      </div>
+  </fieldset>
+
+</div>
+</div>
+</body>
