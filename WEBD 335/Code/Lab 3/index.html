@@ -1,0 +1,337 @@
+<!-- https://www.youtube.com/watch?v=Lit98Vj_1bs&feature=youtu.be -->
+<!DOCTYPE html>
+<head>
+  <title>Lab 3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark">
+    <ul id="top" class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="http://i.stack.imgur.com/KVkTq.jpg" style="width: 20px"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Todos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Add</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Edit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">More</a>
+        </li>
+    </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <table class="table table-borderless table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Todo</th>
+                  <th scope="col">Action</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">User</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">Take out the trash</td>
+                  <td>Sherri told me to Do it.</td>
+                  <td>October 1, 2015</td>
+                  <td>pete@petegordon.com</td>
+                </tr>
+                <tr id="second">
+                  <td scope="row">Wash the Car</td>
+                  <td>I noticed it was getting dirty.</td>
+                  <td>October 2, 2015</td>
+                  <td>pete@petegordon.com</td>
+                </tr>
+                <tr>
+                  <td scope="row">Clean the Gutters</td>
+                  <td>Sherri told me to Do it.</td>
+                  <td>October 2, 2015</td>
+                  <td>pete@petegordon.com</td>
+                </tr>
+                <tr id="changeColor">
+                  <td scope="row">Paint the House</td>
+                  <td>Sherri told me to Do it.</td>
+                  <td>October 2, 2015</td>
+                  <td>pete@petegordon.com</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div>
+            <form>
+              <div class="form-group">
+                <label for="add" class="h3">Add Todo</label>
+                <div class="form-inline">
+                    <input type="email" class="form-control" id="todo" placeholder="Todo...">
+                </div>
+                <textarea class="form-control" rows="2" id="comments" placeholder="Provide details of what needs to be done..."></textarea>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="done">
+                    <label class="form-check-label" for="done"><br>Do Right Away?</label>
+                </div>
+                <div class="form-inline">
+                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Email">
+                    <button type="button" class="btn btn-secondary">Add Todo</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        <!-- ******************************** Lab 2 ********************************-->
+        <div class="jumbotron">
+          <h3 class="display-4">Lab 2 Requirements: <span class="label label-default">New </span></h3><br>
+            <ul class="list-group">
+              <li class="list-group-item">Use a Bootstrap Jumbotron <span class="glyphicon glyphicon-ok"></span></li>
+              <li class="list-group-item">Use at least one Boostrap List Group with Glyphicons <span class="glyphicon glyphicon-ok"></span></li>
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="alert alert-success">
+                    <strong>Success!</strong> Use at least two Bootstrap Alerts. <span class="glyphicon glyphicon-ok"></span>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="alert alert-info">
+                    <strong>Info!</strong> Use at least two Bootstrap Alerts. <span class="glyphicon glyphicon-ok"></span>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">Use an example of Pagination <span class="glyphicon glyphicon-ok"></span></li>
+              <li class="list-group-item">Use at least one Bootstrap Label. <span class="glyphicon glyphicon-ok"></span></li>
+              <li class="list-group-item" id="array">Create an array of Javascript Objects that represents the repeated content on your dashboard (a table, where each row is equivalent to a Javascript Object) <span class="glyphicon glyphicon-ok"></span></li>
+              <li class="list-group-item" id="constructor">Use the Constructor Invocation Pattern, and Write four "public method" functions to create (new Object constructor), read (find Object in global array), update (push changed Object values back into global Array), and delete (delete Object from global Array) functions for the Javascript Object you defined.  Set the functions on the prototype and to have them available to every object instance. <span class="glyphicon glyphicon-ok"></span></li>
+            </ul>
+          <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>    
+      </div>
+      <!-- ******************************** Lab 3 ********************************-->
+      <div>
+        <h3>Lab 3 Requirements:
+        <ul>
+          <li>Select and modify element style (onready, css) in the Todo List using jQuery.</li>
+            <ul>
+              <li id="changetheColor"><a href="#top">Click to Change</a> the name color of the <u>Paint The House</u> Todo above</li>
+            </ul>
+          <li>Add and delete elements in the Todo List using jQuery; bind events (add, update, delete) to objects in the Todo List using jQuery.</li>
+            <ul>
+              <li id="addToDo"><a href="#top">Click to Add</a> a Todo</li>
+              <li id="deleteToDo"><a href="#top">Click to Delete</a> the Todo</li>
+            </ul>
+          <li>Employ at least one selector with filter example to style elements using jQuery.  Show the same example not using filter; just using selector if possible; if not possible explain why.</li>
+            <ul>
+              <li id="noFilter"><a href="#top">Click to see color change w/no filter</a></li>
+              <li id="withFilter"><a href="#top">Click to see color change w/a filter</a></li>
+            </ul>
+          <li>Apply advanced tree walking techniques (find and closest) to create, remove, update, and remove elements from the Todo List with jQuery.</li>
+            <ul>
+              <li id="startTraversal"><a href="#top">Click to see advanced tree traversal</a></li>
+              <li id="digDeeper"><a href="#top">Click to dig deeper</a></li>
+            </ul>
+          <li>Access one remote API to display data and modify page content.</li>
+            <ul id="apiExample">
+              <li>I'm using the API from <a href="http://www.purgomalum.com/" target="_blank"> PurgoMalum</a></li>
+              <li>Type a word below to see if it is considered to be profanity or not: </li>
+              <li><input type="text" id="apiText"><input id="apiSubmit" type="submit" name="Submit"></li>
+              <li>True or False: <span id="apiResult"> </span></li>
+            </ul>
+          <li>Use JSON to store to the Todo List; and parse JSON objects and use the results to dynamically update the Todo List single page application.</li>
+            <ul>
+              <li id="jsonGenerate"><u style="color:blue">Click to Generate the JSON of a Todo Item</u></li>
+              <li>Action: <span id="jsonResult"> </span></li>
+              <li id="jsonAdd"><a href="#top">Click to Add a Todo item using JSON</a></li> 
+            </ul>
+        </ul>
+      </div>
+      <script>
+        /* Function to Create a To Do Object & return it's attributes*/
+        function createToDo(name, action, user) {
+          this.name = name;
+          this.action = action;
+          this.user = user;
+          this.datetime = function() {
+            return new Date();
+          };
+          this.getName = function() {
+            return name;
+          };
+          this.getAction = function() {
+            return action;
+          };
+          this.getUser = function() {
+            return user;
+          };
+          return this;
+        }
+
+        /* Creating 4 ToDo Objects */
+        var trashToDo = new createToDo("Take out the trash", "Sherri told me to Do it.", "pete@petegordon.com");
+        var carToDo = new createToDo("Wash the Car", "I noticed it was getting dirty.", "pete@petegordon.com");
+        var gutterToDo = new createToDo("Clean the Gutters", "Sherri told me to Do it.", "pete@petegordon.com");
+        var paintToDo = new createToDo("Paint the House", "Sherri told me to Do it.", "pete@petegordon.com");
+
+        /* Adding 4 ToDo Objects to a ToDoList Array object */
+        var toDoList = [trashToDo, carToDo, gutterToDo, paintToDo];
+
+        /* Print out of creating an array of JavaScript Objects */
+        var toDoListPara = document.createElement("P");  
+        toDoListPara.innerText = "Third ToDo Name in the ToDoList Array: " + toDoList[2].getName();
+        document.getElementById("array").appendChild(toDoListPara);
+
+        /* Function to read an object from the rray of JavaScript objects*/
+        function readToDo(toDo) {
+          for (i = 0; i < toDoList.length; i++) {
+            if (toDo.getName() == toDoList[i].getName()) {
+              return toDo;
+            }
+            else {
+              return "Not Found";
+            }
+          }
+        }
+
+        /* Function to update array of JavaScript objects */
+        function updateToDo(toDo) {
+          for (i = 0; i < toDoList.length; i++) {
+            if (toDo.getName() == toDoList[i].getName()) {
+                deleteToDo(toDoList[i]);
+                toDoList.push(toDo);
+            }
+            else {
+              toDoList.push(toDo);
+            }
+          }
+        }
+
+        /* Function to delete an object from the array of JavaScript objects*/
+        function deleteToDo(toDo) {
+          var index = toDoList.indexOf(toDo);
+          if (index > -1 ) {
+            toDoList.splice(index, 1);
+            return "Deleted";
+          }
+          else {
+            return "Not Found";
+          }
+        }
+
+        /* Create a new bathroom ToDo */
+        var bathroomToDo = new createToDo("Clean the bathroom", "Daniel said to get it done.", "matt@franklin.edu");
+
+        /* Read a ToDo */
+        var returnReadToDo = readToDo(trashToDo);
+
+        /* Adding a new object to Array of JavaScript objects */
+        var newTrashToDo = createToDo("Take out the trash now!", "It has to be done before tomorrow!", "hrobertson@franklin.edu");
+        updateToDo(newTrashToDo);
+
+        /* Print out of creating a new element */
+        var toDoReturnCreate = document.createElement("P");
+        toDoReturnCreate.innerText = "New Name of Trash ToDo: " + bathroomToDo.getName();
+        document.getElementById("constructor").appendChild(toDoReturnCreate);
+
+        /* Print out of reading an element from the array of JavaScript objects */
+        var toDoReturnRead = document.createElement("P");
+        toDoReturnRead.innerText = "Read Name of Trash ToDo: " + returnReadToDo.getName();  
+        document.getElementById("constructor").appendChild(toDoReturnRead);
+
+        /* Print out of editing the array of Javascript objects  */
+        var toDoReturnUpdate = document.createElement("P");
+        toDoReturnUpdate.innerText = "Updated Name of Trash ToDo: " + newTrashToDo.getName(); 
+        document.getElementById("constructor").appendChild(toDoReturnUpdate);
+
+        /* Print out of deleting an element from the array of JavaScript objects*/
+        var toDoReturnDelete = document.createElement("P");
+        toDoReturnDelete.innerText = "Size of ToDo: " + toDoList.length;
+        document.getElementById("constructor").appendChild(toDoReturnDelete);
+
+        var toDoReturnDelete2 = document.createElement("P");
+        toDoReturnDelete2.innerText = deleteToDo(newTrashToDo) + " '" + newTrashToDo.getName() + "' - New Size: " + toDoList.length;
+        document.getElementById("constructor").appendChild(toDoReturnDelete2);
+
+        /* ******************************** Lab 3 Script Additions ******************************** */
+
+        /* Change the color of a Todo element using jQuery */
+        $("#changetheColor").click(function() {
+          $("#changeColor").css("color", "red");
+        });
+
+        /*Add & Delete elements in the Todo List*/
+        $("body").on("click", "#addToDo", function() {
+          $("#changeColor").after("<tr id='newToDo'><td scope='row'>Walk the Dog***</td><td>Gizmo needs to be walked 3x/day.</td><td>December 7, 2019</td><td>pete@petegordon.com</td></tr>").css({"color":"black"});
+        });
+
+        $("body").on("click", "#deleteToDo", function() {
+          $("#newToDo").remove();
+        });
+
+        /*With & Without filters to selectors*/
+        $("#noFilter").click(function() {
+          $("tr").css({"background-color" : "green"});
+        });
+
+        $("#withFilter").click(function() {
+          $("tr").filter(":even").css({"background-color" : "red"});
+        });
+
+        /*Advanced Tree Traversal*/
+        $("#startTraversal").click(function() {
+          $("tbody").find("tr").css({"background-color" : "yellow"});
+        });
+
+        $("#digDeeper").click(function() {
+          $("tbody").find("#second").closest("tr").css({"background-color" : "green"});
+        });
+
+        /*Access a remote API to display data & modify page content*/
+        $("#apiSubmit").click(function() {
+          var request = new XMLHttpRequest();
+          var test = $("#apiText").val();
+          request.open('GET', 'https://www.purgomalum.com/service/containsprofanity?text='+test, true);
+
+          request.onload = function() {
+            var data = JSON.parse(this.response);
+            $("#apiResult").text(data);
+          };
+
+          request.send();
+        });
+
+        /*Store and send data to index.html using JSON*/
+        var todoObject, todoJSON, todo;
+        $("#jsonGenerate").click(function() {
+          //Store Data
+          todoObject = { name: "Walk the Dog", action: "Needs to be walked daily", date: "December 2, 2019", user: "pete@petegordon.com"};
+          todoJSON = JSON.stringify(todoObject);
+          $("#jsonResult").text("Done");
+
+        });
+
+        $("#jsonAdd").click(function() {
+          //Retrieve, Parse & Send Data
+          todo = JSON.parse(todoJSON);
+          $("#changeColor").after("<tr id='newToDo'><td scope='row'>" + todo.name + "</td><td>" + todo.action + "</td><td>" + todo.date + "</td><td>" + todo.user + "</td></tr>").css({"color":"black"});
+        });
+      </script>
+    </div>
+</body> 
+</html>
+

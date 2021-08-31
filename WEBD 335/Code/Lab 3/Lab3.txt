@@ -1,0 +1,11 @@
+Lab 3:
+a.  Select and modify element style (onready, css) in the Todo List using jQuery.
+b.  Add and delete elements in the Todo List using jQuery; bind events (add, update, delete) to objects in the Todo List using jQuery.
+c.  Employ at least one selector with filter example to style elements using jQuery.  Show the same example not using filter; just using selector if possible; if not possible explain why.
+d.  Apply advanced tree walking techniques (find and closest) to create, remove, update, and remove elements from the Todo List with jQuery.
+e.  Access one remote API to display data and modify page content.
+f.   Use JSON to store to the Todo List; and parse JSON objects and use the results to dynamically update the Todo List single page application.
+
+
+Going beyond the requirements:
+● Create pagination in your Table of Todos when there are more than five Todos.
