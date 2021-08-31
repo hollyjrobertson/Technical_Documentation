@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <title>Homework #9</title>
+  <link rel="stylesheet" type="text/css" href="homework.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="/main.js"></script>
+  <script type="text/javascript" src="hw.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="header">
+      <h1>Homework #9</h1>
+      <p>WEBD 335 &#8213; Pete Gordon</p>
+      <div id="instructions">
+        <p>
+          <strong>Instructions:</strong> Follow the instructions below for each Problem (you can write the Javascript in this HTML file directly and return it) and Answer each Question completely (in another document).
+        </p>
+      </div>
+
+  <fieldset>
+    <h2>Problem 1 &#8213; JQuery POST JSON Array</h2>
+    <p class="question"><strong>[10 points]</strong> Using the provided NodeJS Server write the JQuery required to POST an array to the server when the Event Trigger button is clicked. You must POST more than one thing; and you must use name/value pairs for your things.</p>
+
+    <div class="prob1">
+      Steps to make prob1 work:
+      <ul>
+        <li>Navigate to project folder in your command prompt</li>
+        <ul>
+            <li><img src="assets/path.png" height="42"></li>
+          </ul>
+        <li>Please type <i>node index</i> and then hit enter in your command prompt:</li>
+          <ul>
+            <li><img src="assets/index.jpg" height="42"></li>
+          </ul>
+        <li>This runs on port 3000</li>
+        <li>Go to <a href="http://localhost:3000/"> localhost:3000</a></li>
+        <li>Click the Event Trigger button below</li>
+        <form>
+          <input type="submit" value="Event Trigger" name="prob1submit">
+        </form>
+        <li>Click the Go Back button below</li>
+        <button id="goBack">Go Back</button>
+      </ul>
+      
+      <div class="serverRes">
+        <p>Server Response Here: </p>
+        <p id="prob1response"><u>This text will change</u></p>
+      </div>
+      <script>
+        $("#goBack").click(function() {
+          window.history.back();
+        });
+      </script>
+    </div>
+
+       
+  </fieldset>
+
+  <fieldset>
+    <h2>Problem 2 &#8213; AngularJS POST JSON Array</h2>
+    <p class="question"><strong>[10 points]</strong>Using the provided NodeJS Server write the AngularJS required to POST an array to the server when the Event Trigger button is clicked. Just as in problem 1 above, you must POST more than one thing; and you must use name/value pairs for your things (it would be best to use a copy of the same JSON used above).  Note: the ng-app declaration on the html tag; and the ng-controller=HomeworkController and ng-click=doAjax declaration below.</p>
+      <br />
+      <br />
+      <div class="prob2" ng-controller="HomeworkController as hwList">
+        <div class="serverRes">
+          <p>Server Response Here: </p>
+          <p>I am currently enrolled in {{hwList.currentClasses.length}} classes</p>
+          <form ng-submit="hwList.addClass()">
+            <input type="submit" value="Event Trigger">
+          </form>
+        </div>
+      </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 1</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Briefly explain how the data in JSON organized.
+    </p>
+    <div class="answer">
+      <ul>
+        <li>JSON (JavaScript Object Notation) is simply data organized in a specific fashion - it is a semi-structured data set. Usually referencing key/value objects <a href="https://ilovecoding.org/lessons/json-what-is-json-and-how-to-use-it" target="_blank">Source</a></li>
+      </ul>
+    </div>
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 2</h2>
+    <p class="question"><strong>[1 point]</strong>
+      What method is used to convert a JSON string to a Javascript Object?  What method is used to convert a Javascript Object to JSON?
+    </p>
+    <div class="answer">
+      <ul>
+        <li>Convert JSON string to a Javascript Object, you would use the <span class="code">JSON.parse()</span> function</li>
+          <ul>
+            <li>Use the JavaScript function <span class="code">JSON.parse()</span> to convert text into a JavaScript object: <br>
+              <span class="code">var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}'); </span><br>
+              Make sure the text is written in JSON format, or else you will get a syntax error.<br> <a href="https://www.w3schools.com/js/js_json_parse.asp" target="_blank">Source</a></li>
+          </ul>
+        <li>Convert a Javascript Object to JSON,  you would use the <span class="code">JSON.stringify()</span> function</li>
+          <ul>
+            <li>Use the JavaScript function <span class="code">JSON.stringify()</span> to convert it into a string.: <br>
+              <span class="code">var myJSON = JSON.stringify(obj); </span><br>
+              <a href="https://www.w3schools.com/js/js_json_stringify.asp" target="_blank">Source</a></li>
+          </ul>
+      </ul>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 3</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Not using JQuery or AngularJS, what class and what two methods on that class would be used to make a request?
+    </p>
+    <div class="answer">
+      <ul>
+        <li>I would use the <span class="code">form</span> HTML element and use the <span class="code">action</span> and <span class="code">submit</span> attributes/"classes"</li>
+      </ul>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 4</h2>
+    <p class="question"><strong>[1 point]</strong>
+      How many ready states are there when making an HTTP request?  List each of them.
+    </p>
+    <div class="answer">
+      <ul>
+        <li>I'm running out of time this week, so here's what I gather are the "ready states" for an HTTP request - one that doesn't return an error, but some type of informational, successful or redirection connection response <a href="https://www.restapitutorial.com/httpstatuscodes.html" target="_blank">Source</a>:</li>
+          <ul>
+            <li>1xx - Informational</li>
+              <ul>
+                <li>100 - Continue</li>
+                <li>101 - Switching Protocols</li>
+                <li>102 - Processing (WebDAV)</li>
+              </ul>
+            <li>2xx - Success</li>
+              <ul>
+                <li>200 - OK</li>
+                <li>201 - Created</li>
+                <li>202 - Accepted</li>
+                <li>203 - Non-Authoritative Information</li>
+                <li>204 - No Content</li>
+                <li>205 - Reset Content</li>
+                <li>206 - Partial Content</li>
+                <li>207 - Multi-Status (WebDAV)</li>
+                <li>208 - Already Reported (WebDAV)</li>
+                <li>226 - IM used</li>
+              </ul>
+            <li>3xx - Redirection</li>
+              <ul>
+                <li>300 - Multiple Choices</li>
+                <li>301 - Moved Permanently</li>
+                <li>302 - Found</li>
+                <li>303 - See Other</li>
+                <li>304 - Not Modified</li>
+                <li>305 - Use Proxy</li>
+                <li>306 - (Unused)</li>
+                <li>307 - Temporary Redirect</li>
+                <li>308 - Permanent Redirect (experimental)</li>
+              </ul>
+            </ul>
+          </ul>
+        </div>
+  </fieldset>
+  <fieldset>
+    <h2>Question 5</h2>
+    <p class="question"><strong>[1 point]</strong>
+      What is the AngularJS core object used to make HTTP Requests?  What are the available "methods" when making a request; and describe each one; which are the most common?  Which one is not part of the HTTP standards as of yet?  (Find answers using Google)
+    </p>
+    <div class="answer">
+      <ul>
+        <li>The <span class="code">$http </span>service is a core AngularJS service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP. <a href="https://docs.angularjs.org/api/ng/service/$http" target="_blank">Source</a></li>
+        <li>The available methods for this core object are:</li>
+          <ul>
+            <li><span class="code">get(url, [config]);</span> - Common</li>
+            <li><span class="code">delete(url, [config]);</span> - Common</li>
+            <li><span class="code">head(url, [config]);</span> - Common</li>
+            <li><span class="code">jsonp(url, [config]);</span> - Common but seems to be fading</li>
+            <li><span class="code">post(url, [config]); </span> - Not common HTTP standards / used in RESTful API standards</li>
+            <li><span class="code">put(url, [config]);</span> - Not common HTTP standards / used in RESTful API standards</li>
+            <li><span class="code">patch(url, [config]);</span> - Not common HTTP standards / used in RESTful API standards</li>
+          </ul>
+      </ul>
+    </div>
+  </fieldset>
+
+
+</div>
+</div>
+</body>
+</html>
