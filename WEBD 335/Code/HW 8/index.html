@@ -1,0 +1,209 @@
+<html>
+<!--
+ This is the HTML for the homework problem. It may not be edited
+-->
+
+<head>
+  <title>Homework #8</title>
+  <link rel="stylesheet" type="text/css" href="homework.css">
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/oya4cmx.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="header">
+      <h1>Homework #8</h1>
+      <p>WEBD 335 &#8213; Pete Gordon</p>
+      <div id="instructions">
+        <p>
+          <strong>Instructions:</strong> Follow the instructions below for each Problem (you can write the Javascript in this HTML file directly and return it) and Answer each Question completely (in another document).
+        </p>
+      </div>
+
+  <fieldset>
+    <h2>Problem 1 &#8213; JQuery Custom Events</h2>
+    <p class="question"><strong>[10 points]</strong> Review the JQuery tutorial <a href="https://learn.jquery.com/events/introduction-to-custom-events/">here</a>.  Write your own custom event that is triggered when the button below is clicked.</p>
+
+    <br />
+    <br />
+
+    <div id="prob1">
+      <button id="prob1button">Event Trigger</button>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+      $("#prob1button").bind("click", function(event){  
+        alert("Hello from Holly!");
+      });
+    });
+    </script>
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Problem 2 &#8213; JQuery JSONP</h2>
+    <p class="question"><strong>[10 points]</strong> Write the JSONP call to https://api.github.com/users/petegordon/repos and write the resulting JSON to the console and replace the h1 NONE with the count of my github repos returned by the JSONP call.</p>
+      <br />
+      <br />
+      <div id="prob2">
+        <button id="prob2button">Get JSONP</button>
+        <h1 class="github-repos">NONE</h1>
+      </div>
+
+      <script>
+        $(document).ready(function(){
+          $("#prob2button").bind("click", function(){  
+              $.getJSON("https://api.github.com/users/petegordon/repos", function(json) {
+                $(".github-repos").html(json.length); 
+              });
+            });
+          });
+      </script>
+      <br />
+      <br />
+
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 1</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Explain what event.stopPropagation() does.
+    </p>
+      <div class="answer">
+        <p>The event.stopPropagation() method stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed. (<a href="https://www.w3schools.com/jquery/event_stoppropagation.asp" target="_blank">Source</a>)<br><br>
+        Example:</p>
+      </div>
+      <div id="question1">
+        Click this div element inside of Question 1.
+        <p>Click this p element inside the div element of Question 1.<br><br>
+          <span>Click this span element inside the p element inside the div element of Question 1. (<i>stopPropagation used here</i>)</span>
+        </p>
+      </div>
+      <script>
+        $(document).ready(function(){
+          $(".question1").children("p").children("span").click(function(event) {
+            event.stopPropagation();
+            alert("The span element was clicked");
+          });
+          $(".question1").children("p").click(function(event) {
+            alert("The p element was clicked");
+          });
+          $(".question1").click(function(){
+            alert("The div element was clicked.");
+          });
+        });
+      </script>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 2</h2>
+    <p class="question"><strong>[1 point]</strong>
+      In the reading the key for data binding in jQuery is bind().  But, as of JQuery 1.7 what is the preferred method for attaching event handlers?  Reference the <a href="http://api.jquery.com">JQuery documentation</a> to find the answer.
+    </p>
+    <div class="answer">
+      <p>jQuery provides a method .on() to respond to any event on the selected elements. This is called an event binding. Although .on() isn't the only method provided for event binding, it is a best practice to use this for jQuery 1.7+. (<a href="https://learn.jquery.com/events/handling-events/" target="_blank">Source</a>)<br><br>
+      Example:</p>
+    </div>
+    <div id="question2">
+        <button id="question2btn">Click Me</button>
+    </div>
+    <script>
+    $(document).ready(function(){
+      $("#question2btn").on("click", function() {
+        alert("Question #2 button was clicked using .on()!");
+      });
+    });
+    </script>
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 3</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Not using JQuery, what Javascript object is available for controlling HTTP transactions from client-side programming?
+    </p>
+    <div class="answer">
+      <p>In JavaScript, the object that is responsible for allowing you to send and receive HTTP requests is the weirdly named XMLHttpRequest. This object allows you to do several things that are important to making web requests. (<a href="https://www.kirupa.com/html5/making_http_requests_js.htm" target="_blank">Source</a>)<br><br>
+      Example:</p>
+    </div>
+    <div id="question3">
+        <button id="question3btn">Click Me</button>
+    </div>
+    <script>
+    $(document).ready(function(){
+      $("#question3btn").on("click", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://api.github.com/users/petegordon/repos", true);
+        xhr.send();
+        xhr.onreadystatechange = processRequest;
+        function processRequest(e) {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = JSON.parse(xhr.responseText);
+            alert("Pete Gordon has " + response.length + " repos in GitHub.");
+          }
+        };
+      });
+    });
+    </script>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 4</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Name three (3) different jquery methods available to make an ajax call.
+    </p>
+    <div class="answer">
+      <p><a href="https://www.w3schools.com/jquery/jquery_ref_ajax.asp" target="_blank">Source</a></p>
+      <ul>
+        <li>$.get()</li>
+          <ul>
+            <li>The $.get() method loads data from the server using a HTTP GET request.</li>
+            <li>Used in Problem #2 of this homework</li>
+          </ul>
+        <li>$.getJSON()</li>
+          <ul>
+            <li>The getJSON() method is used to get JSON data using an AJAX HTTP GET request.</li>
+            <li>Used in Problem #2 of this homework</li>
+          </ul>
+        <li>JSON.parse()</li>
+          <ul>
+            <li>When receiving data from a web server, the data is always a string. Parse the data with JSON.parse(), and the data becomes a JavaScript object.</li>
+            <li>Used in Problem #2 of this homework</li>
+          </ul>
+      </ul>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 5</h2>
+    <p class="question"><strong>[1 point]</strong>
+      What is the difference between jquery text and html functions?
+    </p>
+    <div class="answer">
+      <p><a href="https://www.w3schools.com/jquery/html_text.asp" target="_blank">Source</a></p>
+      <ul>
+        <li>jQuery Text:</li>
+          <ul>
+            <li>The text() method sets or returns the text content of the selected elements.</li>
+            <li>When this method is used to return content, it returns the text content of all matched elements (HTML markup will be removed).</li>
+            <li>When this method is used to set content, it overwrites the content of ALL matched elements.</li>
+          </ul>
+        <li>jQuery HTML functions:</li>
+          <ul>
+            <li>The html() method sets or returns the content (innerHTML) of the selected elements.</li>
+            <li>When this method is used to return content, it returns the content of the FIRST matched element.</li>
+            <li>When this method is used to set content, it overwrites the content of ALL matched elements.</li>
+          </ul>
+      </ul>
+    </div>
+  </fieldset>
+</div>
+</div>
+</body>
