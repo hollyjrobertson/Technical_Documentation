@@ -1,0 +1,157 @@
+<html>
+<!--
+ This is the HTML for the homework problem. It may not be edited
+-->
+
+<head>
+  <title>Homework #6</title>
+  <link rel="stylesheet" type="text/css" href="homework.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      console.log('page is loaded');
+      $("#btnChangeColor").click(function(){
+        $("#circleToChange").css("background", "green");
+        for (var i = 0; i < 5; i++) {
+            $("#squaresGoInHere").append("<div></div>"); 
+        }
+      });
+      $("#firstQ").click(function() {
+        $("#textToChange").addClass("big");
+      });
+      $("#lastQ").click(function() {
+        $("#chaining").css("color", "green").slideUp(2000).slideDown(2000).fadeOut("slow").fadeIn();
+      });
+    });
+  </script>
+  <style>
+    .big {
+      font-size: 200%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="header">
+      <h1>Homework #6</h1>
+      <p>WEBD 335 &#8213; Pete Gordon</p>
+      <div id="instructions">
+        <p>
+          <strong>Instructions:</strong> Follow the instructions below for each Problem (you can write the Javascript in this HTML file directly and return it) and Answer each Question completely (in another document).
+        </p>
+      </div>
+
+  <fieldset>
+    <h2>Problem 1 &#8213; JQuery Selectors</h2>
+    <p class="question"><strong>[10 points]</strong> Given the following HTML structure; write JQuery to print to the console 'page is loaded' once the page loads, and make the button change the background color of the cirlce to green. (Note: review JQuery 'on' function for bindings) </p>
+    <div id="circleToChange" style="height:100px;width:100px;border-radius:50px;background-color:red">
+    </div>
+    <button id="btnChangeColor">Change Color</button>
+
+    <br />
+    <br />
+
+    <script>
+    <!-- Write your Javascript and JQuery here-->
+    </script>
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Problem 2 &#8213; JQuery Create Element</h2>
+    <p class="question"><strong>[10 points]</strong> In the same 'page is loaded' function above; write a javascript loop that adds 5 (50x50) red squares into the 'squaresGoInHere' div when the Change Color button is pressed.  Use Jquery to create the red squares.</p>
+      <br />
+      <br />
+      <img src="squares.png" style="width:100px;float:left"/>
+      <!-- Write your Javascript above in the same function -->
+      <div id="squaresGoInHere" style="float:left">
+      </div>
+      <br />
+      <br />
+
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 1</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Give an example of adding and removing a class to an HTML element using jquery?
+    </p>
+      <div id="questionField">
+        <p id="textToChange">Click below to add the big CSS class to this paragraph element. </p>
+        <button id="firstQ">Click to Change</button>
+      </div>
+
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 2</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Provide two reasons from the reading why JSON is preferred over XML.
+    </p>
+    <div id="questionField">
+        <p>Many developers are turning towards using JSON over XML, these are two reasons why:</p> 
+        <ul>
+          <li>JSON is Faster</li>
+            <ul> 
+              <li>The time needed for XML to parse to JS can be extensive, but with JSON, data is already represented as a Javascript object (widely understood by both Javascript and other languages), few bits are being passed across the wire, and less machien time is required to process data. (<a href="https://www.programmableweb.com/news/xml-vs.-json-primer/how-to/2013/11/07" target="_blank">Source</a>) </li>
+            </ul>
+          <li>JSON is Readable</li>
+            <ul>
+              <li>The best representation of this is a visual one (<a href="https://blog.cloud-elements.com/using-json-over-xml" target="_blank">Source</a>) :</li>
+            </ul>
+        </ul>
+        <img src="xml.png" style="width:350px; float:left"/>
+        <img src="json.png" style="width:350px; float:left"/>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 3</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Provide two different syntax examples of how to declare and invoke the function that is the reaction to the DOM loaded "ready" event.
+    </p>
+    <div id="questionField">
+        <p>Two examples of a method that is invoked with the "DOM" ready event</p> 
+        <ul>
+          <li>$(document).ready(function() { });</li>
+          <li>$(function() { });</li>
+        </ul>
+      </div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Question 4</h2>
+    <p class="question"><strong>[1 point]</strong>
+      By default what is "this" in a browser context globally?
+    </p>
+    <div id="questionField">
+        <ul>
+          <li>When used alone, the <strong>owner</strong> is the Global object, so <i>this</i> refers to the Global object.</li>
+          <li>In a browser window the Global object is <strong><i>[object Window]</i></strong></li>
+          <li>(<a href="https://www.w3schools.com/js/js_this.asp" target="_blank">Source</a>)</li>
+        </ul>
+      </div>
+  </fieldset>
+  <fieldset>
+    <h2>Question 5</h2>
+    <p class="question"><strong>[1 point]</strong>
+      Describe chaining in JQuery.
+    </p>
+    <div id="questionField">
+        <ul>
+          <li>Instead of writing methods separately and based on separate events, you can combine them to make a <i>chain</i> of events. </li>
+        </ul>
+        <p id="chaining">Click below to see a <strong>chain of events</strong>. </p>
+        <button id="lastQ">Click to Begin</button>
+    </div>
+  </fieldset>
+
+
+</div>
+</div>
+</body>
